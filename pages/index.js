@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 export default function Home({ posts }) {
@@ -17,10 +18,12 @@ export default function Home({ posts }) {
 
         {/* loop over the posts and show them */}
         {posts && posts.map((post) => (
-          <div key={post.id}>
-            <h2>{post.title}</h2>
-            <h3>{post.user.username}</h3>
-          </div>
+          <Link href={`/${post.slug}`} key={post.id}>
+            <a>
+              <h2>{post.title}</h2>
+              <h3>{post.user.username}</h3>
+            </a>
+          </Link>
         ))}
 
       </main>

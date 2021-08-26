@@ -1,6 +1,11 @@
+import Link from 'next/link'
+
 export default function Post({ post }) {
   return (
-    <div>{post.title}s</div>
+    <div>
+      <Link href="/"><a>Go Home</a></Link>
+      <h2>{post.title}</h2>
+    </div>
   )
 }
 
@@ -15,7 +20,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 
