@@ -156,7 +156,7 @@ export default function Header() {
                         {category.featured.map((item) => (
                           <div key={item.name} className="group relative">
                             <div className="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
-                              <Image
+                              <img
                                 src={item.imageSrc}
                                 alt={item.imageAlt}
                                 className="object-center object-cover"
@@ -308,7 +308,7 @@ export default function Header() {
                   <div className="hidden lg:flex-1 lg:flex lg:items-center">
                     <a href="#">
                       <span className="sr-only">Workflow</span>
-                      <Image
+                      <img
                         className="h-8 w-auto"
                         src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                         alt=""
@@ -359,7 +359,7 @@ export default function Header() {
                                           {category.featured.map((item) => (
                                             <div key={item.name} className="group relative">
                                               <div className="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
-                                                <Image
+                                                <img
                                                   src={item.imageSrc}
                                                   alt={item.imageAlt}
                                                   className="object-center object-cover"
@@ -424,7 +424,7 @@ export default function Header() {
                   {/* Logo (lg-) */}
                   <a href="#" className="lg:hidden">
                     <span className="sr-only">Workflow</span>
-                    <Image
+                    <img
                       src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                       alt=""
                       className="h-8 w-auto"
