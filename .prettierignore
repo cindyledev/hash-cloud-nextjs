@@ -1,0 +1,10 @@
+public
+package.json
+package-lock.json
+node_modules/
+.github
+.gitignore
+.next
+.vscode
+build/
+out/

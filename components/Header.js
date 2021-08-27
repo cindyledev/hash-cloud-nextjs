@@ -1,10 +1,16 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { Fragment, useState } from 'react'
-import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
-import { MenuIcon, QuestionMarkCircleIcon, SearchIcon, ShoppingBagIcon, XIcon } from '@heroicons/react/outline'
+import Image from 'next/image';
+import Link from 'next/link';
+import { Fragment, useState } from 'react';
+import { Dialog, Popover, Tab, Transition } from '@headlessui/react';
+import {
+  MenuIcon,
+  QuestionMarkCircleIcon,
+  SearchIcon,
+  ShoppingBagIcon,
+  XIcon,
+} from '@heroicons/react/outline';
 
-const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
+const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP'];
 const navigation = {
   categories: [
     {
@@ -20,7 +26,8 @@ const navigation = {
           name: 'Basic Tees',
           href: '#',
           imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-          imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
+          imageAlt:
+            'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
         },
         {
           name: 'Accessories',
@@ -32,7 +39,8 @@ const navigation = {
           name: 'Carry',
           href: '#',
           imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-04.jpg',
-          imageAlt: 'Model opening tan leather long wallet with credit card pockets and cash pouch.',
+          imageAlt:
+            'Model opening tan leather long wallet with credit card pockets and cash pouch.',
         },
       ],
     },
@@ -43,7 +51,8 @@ const navigation = {
           name: 'New Arrivals',
           href: '#',
           imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-01.jpg',
-          imageAlt: 'Hats and sweaters on wood shelves next to various colors of t-shirts on hangers.',
+          imageAlt:
+            'Hats and sweaters on wood shelves next to various colors of t-shirts on hangers.',
         },
         {
           name: 'Basic Tees',
@@ -62,7 +71,8 @@ const navigation = {
           name: 'Carry',
           href: '#',
           imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-04.jpg',
-          imageAlt: 'Model putting folded cash into slim card holder olive leather wallet with hand stitching.',
+          imageAlt:
+            'Model putting folded cash into slim card holder olive leather wallet with hand stitching.',
         },
       ],
     },
@@ -71,14 +81,14 @@ const navigation = {
     { name: 'Company', href: '#' },
     { name: 'Stores', href: '#' },
   ],
-}
+};
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Header() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="bg-white">
@@ -127,7 +137,9 @@ export default function Header() {
                         key={category.name}
                         className={({ selected }) =>
                           classNames(
-                            selected ? 'text-indigo-600 border-indigo-600' : 'text-gray-900 border-transparent',
+                            selected
+                              ? 'text-indigo-600 border-indigo-600'
+                              : 'text-gray-900 border-transparent',
                             'flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium'
                           )
                         }
@@ -144,9 +156,16 @@ export default function Header() {
                         {category.featured.map((item) => (
                           <div key={item.name} className="group relative">
                             <div className="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
-                              <Image src={item.imageSrc} alt={item.imageAlt} className="object-center object-cover" />
+                              <Image
+                                src={item.imageSrc}
+                                alt={item.imageAlt}
+                                className="object-center object-cover"
+                              />
                             </div>
-                            <a href={item.href} className="mt-6 block text-sm font-medium text-gray-900">
+                            <a
+                              href={item.href}
+                              className="mt-6 block text-sm font-medium text-gray-900"
+                            >
                               <span className="absolute z-10 inset-0" aria-hidden="true" />
                               {item.name}
                             </a>
@@ -329,7 +348,10 @@ export default function Header() {
                                 >
                                   <Popover.Panel className="absolute top-full inset-x-0 text-sm text-gray-500">
                                     {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-                                    <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
+                                    <div
+                                      className="absolute inset-0 top-1/2 bg-white shadow"
+                                      aria-hidden="true"
+                                    />
 
                                     <div className="relative bg-white">
                                       <div className="max-w-7xl mx-auto px-8">
@@ -343,8 +365,14 @@ export default function Header() {
                                                   className="object-center object-cover"
                                                 />
                                               </div>
-                                              <a href={item.href} className="mt-4 block font-medium text-gray-900">
-                                                <span className="absolute z-10 inset-0" aria-hidden="true" />
+                                              <a
+                                                href={item.href}
+                                                className="mt-4 block font-medium text-gray-900"
+                                              >
+                                                <span
+                                                  className="absolute z-10 inset-0"
+                                                  aria-hidden="true"
+                                                />
                                                 {item.name}
                                               </a>
                                               <p aria-hidden="true" className="mt-1">
@@ -404,7 +432,10 @@ export default function Header() {
                   </a>
 
                   <div className="flex-1 flex items-center justify-end">
-                    <a href="#" className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
+                    <a
+                      href="#"
+                      className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block"
+                    >
                       Search
                     </a>
 
@@ -414,7 +445,10 @@ export default function Header() {
                         <span className="sr-only">Help</span>
                         <QuestionMarkCircleIcon className="w-6 h-6" aria-hidden="true" />
                       </a>
-                      <a href="#" className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block">
+                      <a
+                        href="#"
+                        className="hidden text-sm font-medium text-gray-700 hover:text-gray-800 lg:block"
+                      >
                         Help
                       </a>
 
@@ -425,7 +459,9 @@ export default function Header() {
                             className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
                             aria-hidden="true"
                           />
-                          <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                          <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                            0
+                          </span>
                           <span className="sr-only">items in cart, view bag</span>
                         </a>
                       </div>
@@ -440,13 +476,15 @@ export default function Header() {
 
       <header>
         <div>
-          <Link href='/'><a>DJ Events</a></Link>
+          <Link href="/">
+            <a>DJ Events</a>
+          </Link>
         </div>
 
         <nav>
           <ul>
             <li>
-              <Link href='/events'>
+              <Link href="/events">
                 <a>Events</a>
               </Link>
             </li>
@@ -454,5 +492,5 @@ export default function Header() {
         </nav>
       </header>
     </div>
-  )
+  );
 }

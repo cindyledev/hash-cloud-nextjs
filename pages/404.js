@@ -1,6 +1,6 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
 
 export default function NotFoundPage() {
   return (
@@ -8,8 +8,8 @@ export default function NotFoundPage() {
       <div>
         <h1>404</h1>
         <h4>Sorry, there is nothing here</h4>
-        <Link href='/'>Go Back Home</Link>
+        <Link href="/">Go Back Home</Link>
       </div>
     </Layout>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import Footer from './Footer'
+import Footer from './Footer';
 import Header from './Header';
 
 export default function Layout({ title, keyword, description, children }) {
@@ -14,16 +14,14 @@ export default function Layout({ title, keyword, description, children }) {
       </Head>
 
       <Header />
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
       <Footer />
     </div>
-  )
+  );
 }
 
 Layout.defaultProps = {
   title: 'DJ Events | Find the hottest parties',
   description: 'Find the latest DJ and other musical events',
-  keyword: 'music, dj, edm, events'
-}
+  keyword: 'music, dj, edm, events',
+};

@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prettier": "prettier --write .",
+    "prettier-check": "prettier --check .",
     "export": "next build && next export"
   },
   "dependencies": {
@@ -25,7 +27,9 @@
     "autoprefixer": "^10.3.3",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
+    "eslint-config-prettier": "^8.3.0",
     "postcss": "^8.3.6",
+    "prettier": "2.3.2",
     "tailwindcss": "^2.2.7"
   }
 }
