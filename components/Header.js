@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { Fragment, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
@@ -143,7 +144,7 @@ export default function Header() {
                         {category.featured.map((item) => (
                           <div key={item.name} className="group relative">
                             <div className="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
-                              <img src={item.imageSrc} alt={item.imageAlt} className="object-center object-cover" />
+                              <Image src={item.imageSrc} alt={item.imageAlt} className="object-center object-cover" />
                             </div>
                             <a href={item.href} className="mt-6 block text-sm font-medium text-gray-900">
                               <span className="absolute z-10 inset-0" aria-hidden="true" />
@@ -288,7 +289,7 @@ export default function Header() {
                   <div className="hidden lg:flex-1 lg:flex lg:items-center">
                     <a href="#">
                       <span className="sr-only">Workflow</span>
-                      <img
+                      <Image
                         className="h-8 w-auto"
                         src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                         alt=""
@@ -336,7 +337,7 @@ export default function Header() {
                                           {category.featured.map((item) => (
                                             <div key={item.name} className="group relative">
                                               <div className="aspect-w-1 aspect-h-1 rounded-md bg-gray-100 overflow-hidden group-hover:opacity-75">
-                                                <img
+                                                <Image
                                                   src={item.imageSrc}
                                                   alt={item.imageAlt}
                                                   className="object-center object-cover"
@@ -395,7 +396,7 @@ export default function Header() {
                   {/* Logo (lg-) */}
                   <a href="#" className="lg:hidden">
                     <span className="sr-only">Workflow</span>
-                    <img
+                    <Image
                       src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
                       alt=""
                       className="h-8 w-auto"
