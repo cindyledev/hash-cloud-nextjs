@@ -18,7 +18,6 @@ export default function Home({ posts }) {
   return (
     <Layout>
       <main>
-
         {/* loop over the posts and show them */}
         {posts &&
           posts.map((post) => (
