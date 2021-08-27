@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { DotsVerticalIcon } from '@heroicons/react/solid';
 
 import Layout from '@components/Layout';
+import { API_URL } from "@config/index";
 
 const projects = [
   { name: 'Graph API', initials: 'GA', href: '#', members: 16, bgColor: 'bg-pink-600' },
@@ -14,24 +15,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Home({ posts }) {
+export default function Home({ events }) {
   return (
     <Layout>
       <main>
-        {/* loop over the posts and show them */}
-        {posts &&
-          posts.map((post) => (
-            <Link href={`/${post.slug}`} key={post.id}>
-              <a>
-                <h2>{post.title}</h2>
-                <h3>{post.user.username}</h3>
-              </a>
-            </Link>
-          ))}
-
         <div>
           <h2 className="text-gray-500 text-xs font-medium uppercase tracking-wide">
-            Pinned Projects
+            Upcoming Events
           </h2>
           <ul
             role="list"
@@ -76,12 +66,22 @@ export default function Home({ posts }) {
   );
 }
 
-export async function getStaticProps() {
-  // get posts from our api
-  const res = await fetch('http://localhost:1337/posts');
-  const posts = await res.json();
+// export async function getStaticProps() {
+//   // get posts from our api
+//   const res = await fetch('http://localhost:1337/posts');
+//   const posts = await res.json();
+
+//   return {
+//     props: { posts },
+//   };
+// }
+
+export async function getServerSideProps() {
+  const res = await fetch(`${API_URL}/api/events`)
+  const events = await res.json()
 
   return {
-    props: { posts },
-  };
+    props: { events },
+    revalidate: 1
+  }
 }
