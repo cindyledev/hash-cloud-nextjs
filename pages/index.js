@@ -18,9 +18,6 @@ export default function Home({ posts }) {
   return (
     <Layout>
       <main>
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
 
         {/* loop over the posts and show them */}
         {posts &&
