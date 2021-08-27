@@ -1,13 +1,12 @@
 import Link from 'next/link'
 
 import Layout from '../components/Layout'
-import styles from '../styles/Layout.module.css'
 
 export default function Home({ posts }) {
   return (
-    <Layout className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+    <Layout>
+      <main>
+        <h1>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
