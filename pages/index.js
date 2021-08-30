@@ -21,6 +21,7 @@ export default function Home({ events }) {
           <ul
             role="list"
             className="mt-3 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4"
+            key={events.key}
           >
             {events.map((evt) => (
               <li key={evt.key} className="col-span-1 flex shadow-sm rounded-md">
