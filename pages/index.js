@@ -37,7 +37,7 @@ export default function Home({ events }) {
                       {evt.name}
                     </a>
                     <p className="text-gray-500">
-                      {evt.date} at {evt.time}
+                      {new Date(evt.date).toLocaleDateString('en-US')} at {evt.time}
                     </p>
                   </div>
                   <div className="flex-shrink-0 pr-2">
@@ -79,11 +79,12 @@ export default function Home({ events }) {
 //   };
 // }
 
-export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}/api/events`);
+export async function getStaticProps() {
+  const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`);
   const events = await res.json();
 
   return {
-    props: { events: events.slice(0, 3) },
+    props: { events },
+    revalidate: 1,
   };
 }

@@ -34,7 +34,7 @@ export default function EventsPage({ events }) {
                       {evt.name}
                     </a>
                     <p className="text-gray-500">
-                      {evt.date} at {evt.time}
+                      {new Date(evt.date).toLocaleDateString('en-US')} at {evt.time}
                     </p>
                   </div>
                   <div className="flex-shrink-0 pr-2">
@@ -71,7 +71,7 @@ export default function EventsPage({ events }) {
 // }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}/api/events`);
+  const res = await fetch(`${API_URL}/events?_sort=date:ASC`);
   const events = await res.json();
 
   return {
