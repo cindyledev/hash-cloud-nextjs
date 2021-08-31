@@ -10,6 +10,8 @@ import {
   XIcon,
 } from '@heroicons/react/outline';
 
+import Search from './Search';
+
 const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP'];
 const navigation = {
   categories: [
@@ -480,6 +482,8 @@ export default function Header() {
             <a>DJ Events</a>
           </Link>
         </div>
+
+        <Search />
 
         <nav>
           <ul>
