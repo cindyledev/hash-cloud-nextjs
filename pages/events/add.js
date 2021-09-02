@@ -22,27 +22,27 @@ export default function AddEventsPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validation
-    const hasEmptyFields = Object.values(values).some((element) => element === '')
 
-    if(hasEmptyFields) {
-      toast.error("Please fill in empty fields")
+    // Validation
+    const hasEmptyFields = Object.values(values).some((element) => element === '');
+
+    if (hasEmptyFields) {
+      toast.error('Please fill in empty fields');
     }
 
     const res = await fetch(`${API_URL}/events`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(values)
-    })
+      body: JSON.stringify(values),
+    });
 
-    if(!res.ok) {
-      toast.error('Something went wrong')
+    if (!res.ok) {
+      toast.error('Something went wrong');
     } else {
-      const evt = await res.json()
-      router.push(`/events/${evt.slug}`)
+      const evt = await res.json();
+      router.push(`/events/${evt.slug}`);
     }
   };
 
