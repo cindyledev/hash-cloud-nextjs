@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { FaImage } from 'react-icons/fa';
 
 import Layout from '@components/Layout';
+import Modal from '@components/Modal';
 import { API_URL } from '@config/index';
 
 export default function EditEventPage({ evt }) {
@@ -24,6 +25,8 @@ export default function EditEventPage({ evt }) {
   const [imagePreview, setImagePreview] = useState(
     evt.image ? evt.image.formats.thumbnail.url : null
   );
+
+  const [showModal, setShowModal] = useState(false);
 
   const router = useRouter();
 
@@ -143,18 +146,23 @@ export default function EditEventPage({ evt }) {
 
       <h2>Event Image</h2>
       {imagePreview ? (
-        <Image src={imagePreview} height={100} width={170} />
+        <Image src={imagePreview} height={100} width={170} alt={values.name} />
       ) : (
         <div>
           <p>No image uploaded</p>
         </div>
       )}
+
       <div>
-        <button>
+        <button onClick={() => setShowModal(true)}>
           <FaImage />
           Set Image
         </button>
       </div>
+
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
+        IMAGE UPLOAD
+      </Modal>
     </Layout>
   );
 }
