@@ -9,6 +9,7 @@ import {
   ShoppingBagIcon,
   XIcon,
 } from '@heroicons/react/outline';
+import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 
 import Search from './Search';
 
@@ -495,6 +496,18 @@ export default function Header() {
             <li>
               <Link href="/events/add">
                 <a>Add Event</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/account/login">
+                <a>
+                  <FaSignInAlt /> Login
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/account/register">
+                <a> Register</a>
               </Link>
             </li>
           </ul>
