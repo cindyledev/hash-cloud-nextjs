@@ -18,10 +18,6 @@ export default function EventsPage({ events, page, total }) {
               <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
                 All Events
               </h2>
-              <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus
-                atque, ducimus sed.
-              </p>
             </div>
 
             {events.length === 0 && <h3>No events to show</h3>}
@@ -72,9 +68,9 @@ export default function EventsPage({ events, page, total }) {
                   </div>
                 </div>
               ))}
-              <div className="pt-5 mx-auto">
-                <Pagination page={page} total={total} />
-              </div>
+            </div>
+            <div className="pt-5 flex justify-center">
+              <Pagination page={page} total={total} />
             </div>
           </div>
         </div>
