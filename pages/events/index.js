@@ -1,6 +1,5 @@
-import { DotsVerticalIcon } from '@heroicons/react/solid';
+import Link from 'next/link';
 
-import EventItem from '@components/EventItem';
 import Layout from '@components/Layout';
 import Pagination from '@components/Pagination';
 import { API_URL, PER_PAGE } from '@config/index';
@@ -8,27 +7,6 @@ import { API_URL, PER_PAGE } from '@config/index';
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
-
-const posts = [
-  {
-    title: 'Boost your conversion rate',
-    href: '#',
-    category: { name: 'Article', href: '#' },
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
-    date: 'Mar 16, 2020',
-    datetime: '2020-03-16',
-    imageUrl:
-      'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-    readingTime: '6 min',
-    author: {
-      name: 'Roel Aufderehar',
-      href: '#',
-      imageUrl:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-  },
-];
 
 export default function EventsPage({ events, page, total }) {
   return (
@@ -56,42 +34,48 @@ export default function EventsPage({ events, page, total }) {
                   <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                     <div className="flex-1">
                       <p className="text-sm font-medium text-indigo-600">
-                        <a href={`/events/${evt.slug}`} className="hover:underline">
-                          {evt.performers}
-                        </a>
+                        <Link href={`/events/${evt.slug}`}>
+                          <a className="hover:underline">{evt.performers}</a>
+                        </Link>
                       </p>
-                      <a href={`/events/${evt.slug}`} className="block mt-2">
-                        <p className="text-xl font-semibold text-gray-900">{evt.name}</p>
-                        <p className="mt-3 text-base text-gray-500">{evt.description}</p>
-                      </a>
+                      <Link href={`/events/${evt.slug}`}>
+                        <a className="block mt-2">
+                          <p className="text-xl font-semibold text-gray-900">{evt.name}</p>
+                          <p className="mt-3 text-base text-gray-500">{evt.description}</p>
+                        </a>
+                      </Link>
                     </div>
                     <div className="mt-6 flex items-center">
                       <div className="flex-shrink-0">
-                        <a href={`/events/${evt.slug}`}>
-                          <span className="sr-only">{evt.venue}</span>
-                          <img className="h-10 w-10 rounded-full" src={evt.name} alt="" />
-                        </a>
+                        <Link href={`/events/${evt.slug}`}>
+                          <a>
+                            <span className="sr-only">{evt.venue}</span>
+                            <img className="h-10 w-10 rounded-full" src={evt.name} alt="" />
+                          </a>
+                        </Link>
                       </div>
                       <div className="ml-3">
                         <p className="text-sm font-medium text-gray-900">
-                          <a href={`/events/${evt.slug}`} className="hover:underline">
-                            {evt.address}
-                          </a>
+                          <Link href={`/events/${evt.slug}`}>
+                            <a className="hover:underline">{evt.address}</a>
+                          </Link>
                         </p>
                         <div className="flex space-x-1 text-sm text-gray-500">
                           <time dateTime={evt.date}>
                             {new Date(evt.date).toLocaleDateString('en-US')}
                           </time>
                           <span aria-hidden="true">&middot;</span>
-                          <span>{evt.time} read</span>
+                          <span>{evt.time}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
+              <div className="pt-5 mx-auto">
+                <Pagination page={page} total={total} />
+              </div>
             </div>
-            <Pagination page={page} total={total} />
           </div>
         </div>
       </main>

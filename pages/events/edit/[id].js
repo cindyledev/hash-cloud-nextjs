@@ -2,10 +2,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { DateTime } from 'luxon';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FaImage } from 'react-icons/fa';
 
 import ImageUpload from '@components/ImageUpload';
 import Layout from '@components/Layout';
