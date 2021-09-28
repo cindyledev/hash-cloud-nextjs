@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import Layout from '@components/Layout';
@@ -11,11 +12,14 @@ export default function NotFoundPage() {
             <Link href="/">
               <a className="inline-flex">
                 <span className="sr-only">Workflow</span>
-                <img
-                  className="h-12 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
-                  alt=""
-                />
+                <div className="relative h-12 w-14">
+                  <Image
+                    src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
+                    alt="Workflow logo"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
               </a>
             </Link>
           </div>
