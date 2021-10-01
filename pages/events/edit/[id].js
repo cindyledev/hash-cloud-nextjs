@@ -194,7 +194,6 @@ export default function EditEventPage({ evt }) {
                       onChange={handleInputChange}
                       rows={3}
                       className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md"
-                      defaultValue={''}
                     />
                   </div>
                   <p className="mt-2 text-sm text-gray-500">
@@ -279,9 +278,11 @@ export default function EditEventPage({ evt }) {
   );
 }
 
-export async function getServerSideProps({ params: { id } }) {
+export async function getServerSideProps({ params: { id }, req }) {
   const res = await fetch(`${API_URL}/events/${id}`);
   const evt = await res.json();
+
+  console.log(req.headers.cookie);
 
   return {
     props: {

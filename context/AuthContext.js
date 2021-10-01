@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 import { NEXT_URL } from '@config/index';
 
@@ -7,6 +7,8 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({ name: 'Cindy' });
   const [error, setError] = useState(null);
+
+  useEffect(() => checkUserLoggedIn(), []);
 
   // Register user
   const register = async (user) => {
