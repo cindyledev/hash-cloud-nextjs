@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import { DotsVerticalIcon } from '@heroicons/react/solid';
 
-import EventItem from '@components/EventItem';
 import Layout from '@components/Layout';
 import { API_URL } from '@config/index';
 
@@ -20,9 +18,9 @@ export default function Home({ events }) {
           {events.length === 0 && <h3>No events to show</h3>}
           <div className="mt-4 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
             {events.map((evt) => (
-              <div key={evt.key} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+              <div key={evt.id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
                 <div className="flex-shrink-0">
-                  <img className="h-48 w-full object-cover" src={evt.imageUrl} alt="" />
+                  <img className="h-48 w-full object-cover" src={evt.image} alt="" />
                 </div>
                 <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                   <div className="flex-1">
@@ -43,7 +41,7 @@ export default function Home({ events }) {
                       <Link href={`/events/${evt.slug}`}>
                         <a>
                           <span className="sr-only">{evt.venue}</span>
-                          <img className="h-10 w-10 rounded-full" src={evt.name} alt="" />
+                          <img className="h-10 w-10 rounded-full" src={evt.image} alt="" />
                         </a>
                       </Link>
                     </div>
