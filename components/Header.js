@@ -160,20 +160,24 @@ export default function Header() {
                   // If logged out
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <button
-                        type="button"
-                        className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
-                      >
-                        <span>Log In</span>
-                      </button>
+                      <Link href="/account/login">
+                        <button
+                          type="button"
+                          className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+                        >
+                          <a>Log In</a>
+                        </button>
+                      </Link>
                     </div>
                     <div className="md:ml-4 md:flex-shrink-0 md:flex md:items-center">
-                      <button
-                        type="button"
-                        className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
-                      >
-                        <span>Register</span>
-                      </button>
+                      <Link href="/account/register">
+                        <button
+                          type="button"
+                          className="relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+                        >
+                          <a>Register</a>
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 )}
